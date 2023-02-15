@@ -21,7 +21,7 @@
 
 		<script type="module">
 			import * as THREE from "https://threejs.org/build/three.module.js";
-			import { TransformControls } from "https://threejs.org/examples/jsm/controls/TransformControls.js";
+	                //import { TransformControls } from "https://threejs.org/examples/jsm/controls/TransformControls.js";
 			import Stats from "https://threejs.org/examples/jsm/libs/stats.module.js";
 			import { Flow } from "https://threejs.org/examples/jsm/modifiers/CurveModifier.js";
 			import { GLTFLoader } from "https://threejs.org/examples/jsm/loaders/GLTFLoader.js";
@@ -197,14 +197,14 @@
 				renderer.domElement.addEventListener("pointerdown", onPointerDown);
                 //拖拽立方体改变轨迹线
 				rayCaster = new THREE.Raycaster();
-				control = new TransformControls(camera, renderer.domElement);
-				control.addEventListener("dragging-changed", function (event) {
-					if (!event.value) {
-						const points = curve.getPoints(50);
-						line.geometry.setFromPoints(points);
-						flow.updateCurve(0, curve);
-					}
-				});
+				//control = new TransformControls(camera, renderer.domElement);
+			//	control.addEventListener("dragging-changed", function (event) {
+			//		if (!event.value) {
+			//			const points = curve.getPoints(50);
+			//			line.geometry.setFromPoints(points);
+			//			flow.updateCurve(0, curve);
+			//		}
+			//	});
 
 				stats = new Stats();
 				document.body.appendChild(stats.dom);
@@ -248,7 +248,7 @@
 					const intersects = rayCaster.intersectObjects(curveHandles, false);
 					if (intersects.length) {
 						const target = intersects[0].object;
-						control.attach(target);
+				//		control.attach(target);
 						scene.add(control);
 					}
 				}
